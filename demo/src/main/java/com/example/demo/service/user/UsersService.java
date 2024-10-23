@@ -1,19 +1,13 @@
 package com.example.demo.service.user;
 
-import com.example.demo.repository.user.User;
+import com.example.demo.model.user.User;
 
 import java.util.List;
 
 public interface UsersService {
     User createUser(User user);
     List<User> getAllUsers();
-    User getUserById(Long id);
-    User updateUser(Long id, User user);
-    void deleteUser(Long id);
-
-    User getUserById(String id);
-
-    User updateUser(String id, User user);
-
-    void deleteUser(String id);
+    User getUserById(String id); // Cambia Long a String
+    User updateUser(String id, User user); // Cambia Long a String
+    void deleteUser(String id); // Cambia Long a String
 }

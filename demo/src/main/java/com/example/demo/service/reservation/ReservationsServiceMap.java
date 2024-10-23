@@ -1,7 +1,7 @@
 package com.example.demo.service.reservation;
 
 import com.example.demo.repository.ReservationRepository;
-import com.example.demo.repository.reservation.Reservation;
+import com.example.demo.model.reservation.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

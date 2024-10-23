@@ -1,6 +1,6 @@
 package com.example.demo.controller.reservation;
 
-import com.example.demo.repository.reservation.Reservation;
+import com.example.demo.model.reservation.Reservation;
 import com.example.demo.service.reservation.ReservationsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
