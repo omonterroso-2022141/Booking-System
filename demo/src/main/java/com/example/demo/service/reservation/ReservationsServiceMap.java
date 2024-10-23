@@ -1,42 +1,63 @@
 package com.example.demo.service.reservation;
 
+import com.example.demo.repository.ReservationRepository;
 import com.example.demo.repository.reservation.Reservation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @Service
 public class ReservationsServiceMap implements ReservationsService {
-    private HashMap<Long, Reservation> reservations = new HashMap<>();
-    private Long currentId = 1L;
+
+    @Autowired
+    private ReservationRepository reservationRepository;
 
     @Override
     public Reservation createReservation(Reservation reservation) {
-        reservation.setId(currentId++);
-        reservations.put(reservation.getId(), reservation);
-        return reservation;
+        return reservationRepository.save(reservation);
     }
 
     @Override
     public List<Reservation> getAllReservations() {
-        return new ArrayList<>(reservations.values());
+        return reservationRepository.findAll();
     }
 
     @Override
     public Reservation getReservationById(Long id) {
-        return reservations.get(id);
+        return null;
     }
 
     @Override
     public Reservation updateReservation(Long id, Reservation reservation) {
-        reservations.put(id, reservation);
-        return reservation;
+        return null;
     }
 
     @Override
     public void deleteReservation(Long id) {
-        reservations.remove(id);
+
+    }
+
+    @Override
+    public Reservation getReservationById(String id) {
+        return reservationRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Reservation updateReservation(String id, Reservation reservation) {
+        if (reservationRepository.existsById(id)) {
+            reservation.setId(id);  // Aseguramos que el ID es correcto
+            return reservationRepository.save(reservation);
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteReservation(String id) {
+        reservationRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Reservation> getReservationsByUserId(String userId) {
+        return reservationRepository.findByUserId(userId);
     }
 }

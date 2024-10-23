@@ -1,24 +1,44 @@
 package com.example.demo.repository.reservation;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDate;
 
+@Document(collection = "reservations")
 public class Reservation {
-    private Long id;
-    private Long userId;
+    @Id
+    private String  id;
+    private String  userId;
     private LocalDate reservationDate;
 
-    public Reservation(Long id, Long userId, LocalDate reservationDate) {
+    public Reservation(String id, LocalDate reservationDate, String userId) {
         this.id = id;
-        this.userId = userId;
         this.reservationDate = reservationDate;
+        this.userId = userId;
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public String getId() {
+        return id;
+    }
 
-    public Long getUserId() { return userId; }
-    public void setUserId(Long userId) { this.userId = userId; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public LocalDate getReservationDate() { return reservationDate; }
-    public void setReservationDate(LocalDate reservationDate) { this.reservationDate = reservationDate; }
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public LocalDate getReservationDate() {
+        return reservationDate;
+    }
+
+    public void setReservationDate(LocalDate reservationDate) {
+        this.reservationDate = reservationDate;
+    }
 }

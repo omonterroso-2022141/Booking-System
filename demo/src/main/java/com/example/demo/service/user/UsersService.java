@@ -10,4 +10,10 @@ public interface UsersService {
     User getUserById(Long id);
     User updateUser(Long id, User user);
     void deleteUser(Long id);
+
+    User getUserById(String id);
+
+    User updateUser(String id, User user);
+
+    void deleteUser(String id);
 }

@@ -10,4 +10,12 @@ public interface ReservationsService {
     Reservation getReservationById(Long id);
     Reservation updateReservation(Long id, Reservation reservation);
     void deleteReservation(Long id);
+
+    Reservation getReservationById(String id);
+
+    Reservation updateReservation(String id, Reservation reservation);
+
+    void deleteReservation(String id);
+
+    List<Reservation> getReservationsByUserId(String userId);
 }

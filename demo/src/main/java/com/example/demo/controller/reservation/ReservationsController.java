@@ -25,17 +25,22 @@ public class ReservationsController {
     }
 
     @GetMapping("/{id}")
-    public Reservation getReservationById(@PathVariable Long id) {
+    public Reservation getReservationById(@PathVariable String id) {
         return reservationsService.getReservationById(id);
     }
 
+    @GetMapping("/user/{userId}")
+    public List<Reservation> getReservationsByUserId(@PathVariable String userId) {
+        return reservationsService.getReservationsByUserId(userId);
+    }
+
     @PutMapping("/{id}")
-    public Reservation updateReservation(@PathVariable Long id, @RequestBody Reservation reservation) {
+    public Reservation updateReservation(@PathVariable String id, @RequestBody Reservation reservation) {
         return reservationsService.updateReservation(id, reservation);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteReservation(@PathVariable Long id) {
+    public void deleteReservation(@PathVariable String id) {
         reservationsService.deleteReservation(id);
     }
 }
