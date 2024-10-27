@@ -100,6 +100,12 @@
 			<artifactId>mockito-core</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.wrapper/maven-wrapper -->
+		<dependency>
+			<groupId>org.apache.maven.wrapper</groupId>
+			<artifactId>maven-wrapper</artifactId>
+			<version>3.1.0</version>
+		</dependency>
 
 	</dependencies>
 

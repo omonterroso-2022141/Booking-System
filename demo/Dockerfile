@@ -16,9 +16,6 @@ FROM openjdk:17-jdk-slim
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia el archivo JAR generado en la fase de construcción
-COPY --from=build /app/target/*.jar app.jar
-
 # Expone el puerto 8080
 EXPOSE 8080
 
