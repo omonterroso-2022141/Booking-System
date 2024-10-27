@@ -1,4 +1,7 @@
 # Usa una imagen de Maven con OpenJDK 17 para construir el proyecto
+# Agrega permisos de ejecución a mvnw si está en el proyecto
+RUN chmod +x mvnw && ./mvnw clean install -DskipTests
+
 FROM maven:3.8.4-openjdk-17 AS build
 
 # Establece el directorio de trabajo
